@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101829">
+    <title>Skybound - Pocket Arcade</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="topbar">
+        <a class="wordmark" href="./" aria-label="Skybound home">
+          <span class="wordmark-icon" aria-hidden="true">✦</span>
+          <span>SKYBOUND</span>
+        </a>
+        <div class="topbar-actions">
+          <div class="score-chip" aria-live="polite">
+            <span class="chip-label">SCORE</span>
+            <strong id="score-value">00000</strong>
+          </div>
+          <button class="leaderboard-link" id="leaderboard-button" type="button">
+            <span aria-hidden="true">♛</span> Leaderboard
+          </button>
+        </div>
+      </header>
+
+      <section class="game-card" aria-label="Skybound game">
+        <div class="game-heading">
+          <div>
+            <p class="eyebrow">A LITTLE RUN IN THE CLOUDS</p>
+            <h1>Keep your feet off the ground.</h1>
+          </div>
+          <p class="controls-hint"><kbd>SPACE</kbd> or <kbd>↑</kbd> to jump</p>
+        </div>
+
+        <div class="canvas-wrap">
+          <canvas id="game-canvas" width="800" height="440" aria-label="Jump over obstacles and collect coins"></canvas>
+          <section class="overlay" id="game-overlay" aria-labelledby="overlay-title">
+            <div class="overlay-card">
+              <div class="overlay-sparkle" aria-hidden="true">✦</div>
+              <p class="eyebrow" id="overlay-eyebrow">READY WHEN YOU ARE</p>
+              <h2 id="overlay-title">Chase the clouds.</h2>
+              <p class="overlay-message" id="overlay-message">
+                Jump over the little things. Grab the shiny ones. How far can you go?
+              </p>
+              <form class="score-form" id="score-form" hidden>
+                <label for="player-name">Add your name to the board</label>
+                <div class="name-entry">
+                  <input id="player-name" name="player-name" maxlength="16" autocomplete="nickname" placeholder="Your name" required>
+                  <button class="save-button" type="submit">Save score</button>
+                </div>
+              </form>
+              <div class="leaderboard">
+                <div class="leaderboard-heading">
+                  <span>TOP FLIGHT</span>
+                  <span>BEST SCORES</span>
+                </div>
+                <ol id="leaderboard-list"></ol>
+                <p class="empty-leaderboard" id="leaderboard-empty">Your name could be up here.</p>
+              </div>
+              <button class="primary-button" id="overlay-action" type="button">Start running <span aria-hidden="true">↗</span></button>
+              <p class="overlay-footnote" id="overlay-footnote">Five spots. One local leaderboard.</p>
+            </div>
+          </section>
+        </div>
+        <footer class="game-footer">
+          <span><span class="status-dot" aria-hidden="true"></span> Endless mode</span>
+          <span>Coins are worth <strong>100</strong> points</span>
+          <span class="footer-brand">MADE FOR THE MOMENT <span aria-hidden="true">✦</span></span>
+        </footer>
+      </section>
+      <p class="page-note">A tiny arcade game for your next little break.</p>
+    </main>
+  </body>
+</html>
